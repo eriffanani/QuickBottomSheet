@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/quick_bottom_sheet_layParent"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:paddingBottom="15dp"
+    android:background="@drawable/bg_bottom_sheet_default"
+    tools:context=".QuickBottomSheet">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingStart="10dp"
+        android:paddingEnd="10dp"
+        android:paddingTop="15dp"
+        android:paddingBottom="15dp">
+
+        <TextView
+            android:id="@+id/quick_bottom_sheet_txtTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="This is title bottom sheet"
+            android:textColor="@android:color/black"
+            android:textSize="17sp"
+            android:textStyle="bold"/>
+
+        <RelativeLayout
+            android:id="@+id/quick_bottom_sheet_layClose"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:padding="3dp"
+            android:background="@drawable/bg_close_bottom_sheet">
+
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_centerInParent="true"
+                android:src="@drawable/ic_close_black" />
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+    <View
+        android:id="@+id/quick_bottom_sheet_lineView"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#E3E3E3"/>
+
+    <ImageView
+        android:id="@+id/quick_bottom_sheet_imgIllustration"
+        android:layout_width="220dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_height="wrap_content"
+        android:adjustViewBounds="true"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:visibility="gone"/>
+
+    <TextView
+        android:id="@+id/quick_bottom_sheet_txtMessage"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:textSize="14sp"
+        android:text="Lorem ipsum dolor sit amet, Lorem ipsum dolor sit amet, Lorem ipsum dolor sit amet"/>
+
+    <TextView
+        android:id="@+id/quick_bottom_sheet_txtBtnSingle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="BAIKLAH"
+        android:visibility="gone"
+        android:textSize="16sp"
+        android:minWidth="150dp"
+        android:paddingStart="25dp"
+        android:paddingEnd="25dp"
+        android:layout_gravity="center_horizontal"
+        android:includeFontPadding="false"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/bg_btn_single"
+        android:gravity="center"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        android:textColor="@android:color/white"/>
+
+    <LinearLayout
+        android:id="@+id/quick_bottom_sheet_layMultipleButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingStart="15dp"
+        android:paddingEnd="15dp"
+        android:visibility="gone"
+        android:layout_marginTop="20dp">
+
+        <TextView
+            android:id="@+id/quick_bottom_sheet_txtBtnLeft"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="CANCEL"
+            android:textSize="16sp"
+            android:includeFontPadding="false"
+            android:background="@drawable/bg_btn_negative"
+            android:gravity="center"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:maxLines="1"
+            android:ellipsize="end"
+            android:textColor="@android:color/white"
+            android:layout_weight="1"/>
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1.6"/>
+
+        <TextView
+            android:id="@+id/quick_bottom_sheet_txtBtnRight"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="YES"
+            android:textSize="16sp"
+            android:includeFontPadding="false"
+            android:background="@drawable/bg_btn_positive"
+            android:gravity="center"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:maxLines="1"
+            android:ellipsize="end"
+            android:textColor="@android:color/white"
+            android:layout_weight="1"/>
+
+    </LinearLayout>
+
+</LinearLayout>

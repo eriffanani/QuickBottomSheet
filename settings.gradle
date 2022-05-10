@@ -1,0 +1,3 @@
+rootProject.name = "QuickBottomSheet"
+include ':app'
+include ':quickBottomSheet'
