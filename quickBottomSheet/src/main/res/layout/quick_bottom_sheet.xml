@@ -49,7 +49,8 @@
                     android:layout_width="20dp"
                     android:layout_height="20dp"
                     android:layout_centerInParent="true"
-                    android:src="@drawable/ic_close_black" />
+                    android:src="@drawable/ic_close_black"
+                    tools:ignore="ContentDescription" />
 
             </RelativeLayout>
 
@@ -59,7 +60,7 @@
             android:id="@+id/quick_bottom_sheet_lineView"
             android:layout_width="match_parent"
             android:layout_height="1dp"
-            android:background="#E3E3E3"/>
+            android:background="@color/quick_bottom_sheet_divider_color"/>
 
         <ImageView
             android:id="@+id/quick_bottom_sheet_imgIllustration"
@@ -69,7 +70,8 @@
             android:adjustViewBounds="true"
             android:layout_marginTop="10dp"
             android:layout_marginBottom="10dp"
-            android:visibility="gone"/>
+            android:visibility="gone"
+            tools:ignore="ContentDescription" />
 
         <TextView
             android:id="@+id/quick_bottom_sheet_txtMessage"

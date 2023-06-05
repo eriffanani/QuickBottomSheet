@@ -17,14 +17,14 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         QuickBottomSheet.Builder builder = new QuickBottomSheet.Builder(getSupportFragmentManager(), true);
-        builder.setTitle("Abc", true);
-        builder.setTitleLine(false);
+        builder.setTitle("This is My Title", true);
+        //builder.setTitleLine(false);
         builder.setIllustration(R.mipmap.illustration);
         builder.setMessage("Lorem ipsum dolor sit amet bla bla bla bla bla bla bla bla bla", true);
         builder.setCancelable(true);
         builder.showCloseButton(true);
         builder.setSingleButton(new BottomSheetButtonSingle(
-                "OKELAH", android.R.color.black,
+                "OK", android.R.color.black,
                 R.drawable.custom_bg_button, Dialog::dismiss
         ));
         //builder.setFont(R.font.chelon);

@@ -1,35 +1,37 @@
  package com.erif.library;
 
-import android.animation.Animator;
-import android.animation.ValueAnimator;
 import android.annotation.SuppressLint;
-import android.app.Dialog;
+ import android.app.Dialog;
+import android.graphics.Color;
 import android.graphics.Typeface;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
-import android.view.Gravity;
-import android.view.LayoutInflater;
-import android.view.View;
+ import android.view.Gravity;
+ import android.view.LayoutInflater;
+ import android.view.View;
+import android.view.WindowManager;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
-import android.widget.TextView;
+ import android.widget.LinearLayout;
+ import android.widget.RelativeLayout;
+ import android.widget.TextView;
 
-import androidx.annotation.DrawableRes;
-import androidx.annotation.FontRes;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.core.content.ContextCompat;
-import androidx.core.content.res.ResourcesCompat;
-import androidx.fragment.app.FragmentManager;
+ import androidx.annotation.DrawableRes;
+ import androidx.annotation.FontRes;
+ import androidx.annotation.NonNull;
+ import androidx.annotation.Nullable;
+ import androidx.core.content.ContextCompat;
+ import androidx.core.content.res.ResourcesCompat;
+ import androidx.fragment.app.FragmentManager;
 
-import com.erif.library.button.BottomSheetButtonSingle;
-import com.erif.library.callback.BottomSheetMultipleCallback;
-import com.erif.library.callback.BottomSheetSingleCallback;
-import com.google.android.material.bottomsheet.BottomSheetDialogFragment;
+import com.erif.CountDown.CountDown;
+import com.erif.library.animation.QuickBottomSheetAnimation;
+ import com.erif.library.button.BottomSheetButtonSingle;
+ import com.erif.library.callback.BottomSheetMultipleCallback;
+ import com.erif.library.callback.BottomSheetSingleCallback;
+ import com.google.android.material.bottomsheet.BottomSheetDialogFragment;
 
 public class QuickBottomSheet extends BottomSheetDialogFragment {
 
-    private LinearLayout layParent;
     private int fontID;
     private FragmentManager fragmentManager;
     private Dialog dialog;
@@ -88,7 +90,7 @@ public class QuickBottomSheet extends BottomSheetDialogFragment {
         dialog = super.onCreateDialog(savedInstanceState);
         LayoutInflater inflater = LayoutInflater.from(requireContext());
         View contentView = inflater.inflate(R.layout.quick_bottom_sheet, null, false);
-        layParent = contentView.findViewById(R.id.quick_bottom_sheet_layParent);
+        LinearLayout layParent = contentView.findViewById(R.id.quick_bottom_sheet_layParent);
         TextView txtTitle = contentView.findViewById(R.id.quick_bottom_sheet_txtTitle);
         TextView txtMessage = contentView.findViewById(R.id.quick_bottom_sheet_txtMessage);
         RelativeLayout layClose = contentView.findViewById(R.id.quick_bottom_sheet_layClose);
@@ -124,7 +126,9 @@ public class QuickBottomSheet extends BottomSheetDialogFragment {
                 txtMessage.setGravity(Gravity.CENTER);
         }
         layClose.setVisibility(closeButton ? View.VISIBLE : View.GONE);
-        layClose.setOnClickListener(view -> dismiss());
+        layClose.setOnClickListener(view -> {
+            new CountDown(300L, this::dismiss);
+        });
 
         viewLine.setVisibility(useLine ? View.VISIBLE : View.GONE);
         if (illustration != 0) {
@@ -163,109 +167,7 @@ public class QuickBottomSheet extends BottomSheetDialogFragment {
         }
 
         dialog.setContentView(contentView);
-
-        layParent.post(() -> {
-            /*ValueAnimator anim = ValueAnimator.ofFloat(0.8f, 1f);
-            anim.setDuration(300);
-            anim.addUpdateListener(valueAnimator -> {
-                float value = (float) valueAnimator.getAnimatedValue();
-                layParent.setScaleX(value);
-                layParent.setScaleY(value);
-                layParent.setAlpha(value);
-            });
-            anim.start();*/
-
-            float bottom_sheet_margin_top = getResources().getDimension(R.dimen.bottom_sheet_margin_top) * -1;
-            float bottom_sheet_trans = getResources().getDimension(R.dimen.bottom_sheet_trans);
-
-            ValueAnimator anim3 = ValueAnimator.ofFloat(bottom_sheet_trans, 0f);
-            anim3.setDuration(200);
-            anim3.addUpdateListener(valueAnimator -> {
-                float value = (float) valueAnimator.getAnimatedValue();
-                layParent.setTranslationY(value);
-            });
-
-            ValueAnimator anim2 = ValueAnimator.ofFloat(bottom_sheet_margin_top, bottom_sheet_trans);
-            anim2.setDuration(200);
-            anim2.addUpdateListener(valueAnimator -> {
-                float value = (float) valueAnimator.getAnimatedValue();
-                layParent.setTranslationY(value);
-            });
-            anim2.addListener(new Animator.AnimatorListener() {
-                @Override
-                public void onAnimationStart(@NonNull Animator animator) {
-
-                }
-
-                @Override
-                public void onAnimationEnd(@NonNull Animator animator) {
-                    anim3.start();
-                }
-
-                @Override
-                public void onAnimationCancel(@NonNull Animator animator) {
-
-                }
-
-                @Override
-                public void onAnimationRepeat(@NonNull Animator animator) {
-
-                }
-            });
-
-            ValueAnimator anim = ValueAnimator.ofFloat(0f, bottom_sheet_margin_top);
-            anim.setDuration(200);
-            anim.addUpdateListener(valueAnimator -> {
-                float value = (float) valueAnimator.getAnimatedValue();
-                layParent.setTranslationY(value);
-            });
-            anim.addListener(new Animator.AnimatorListener() {
-                @Override
-                public void onAnimationStart(@NonNull Animator animator) {
-
-                }
-
-                @Override
-                public void onAnimationEnd(@NonNull Animator animator) {
-                    anim2.start();
-                }
-
-                @Override
-                public void onAnimationCancel(@NonNull Animator animator) {
-
-                }
-
-                @Override
-                public void onAnimationRepeat(@NonNull Animator animator) {
-
-                }
-            });
-            anim.start();
-
-            /*ValueAnimator delay = ValueAnimator.ofInt(0, 500);
-            delay.setDuration(100);
-            delay.addListener(new Animator.AnimatorListener() {
-                @Override
-                public void onAnimationStart(@NonNull Animator animator) {
-
-                }
-
-                @Override
-                public void onAnimationEnd(@NonNull Animator animator) {
-                    anim.start();
-                }
-
-                @Override
-                public void onAnimationCancel(@NonNull Animator animator) {
-
-                }
-
-                @Override
-                public void onAnimationRepeat(@NonNull Animator animator) {
-
-                }
-            });*/
-        });
+        QuickBottomSheetAnimation.bounce(layParent);
 
         return dialog;
     }

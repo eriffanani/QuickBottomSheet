@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="quick_bottom_sheet_ripple_color">#D1D1D1</color>
+    <color name="quick_bottom_sheet_divider_color">#E6E6E6</color>
+
+</resources>
