@@ -1,16 +1,13 @@
  package com.erif.library;
 
-import android.annotation.SuppressLint;
+ import android.annotation.SuppressLint;
  import android.app.Dialog;
-import android.graphics.Color;
-import android.graphics.Typeface;
-import android.graphics.drawable.ColorDrawable;
-import android.os.Bundle;
+ import android.graphics.Typeface;
+ import android.os.Bundle;
  import android.view.Gravity;
  import android.view.LayoutInflater;
  import android.view.View;
-import android.view.WindowManager;
-import android.widget.ImageView;
+ import android.widget.ImageView;
  import android.widget.LinearLayout;
  import android.widget.RelativeLayout;
  import android.widget.TextView;
@@ -23,8 +20,8 @@ import android.widget.ImageView;
  import androidx.core.content.res.ResourcesCompat;
  import androidx.fragment.app.FragmentManager;
 
-import com.erif.CountDown.CountDown;
-import com.erif.library.animation.QuickBottomSheetAnimation;
+ import com.erif.CountDown.CountDown;
+ import com.erif.library.animation.QuickBottomSheetAnimation;
  import com.erif.library.button.BottomSheetButtonSingle;
  import com.erif.library.callback.BottomSheetMultipleCallback;
  import com.erif.library.callback.BottomSheetSingleCallback;
